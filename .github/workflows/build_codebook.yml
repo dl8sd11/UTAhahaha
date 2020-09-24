@@ -1,0 +1,30 @@
+name: Build Codebook
+on: [push]
+jobs:
+  build_latex:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Set up Git repository
+        uses: actions/checkout@v1
+      - name: Prepare Source
+        run: |
+          rm -f list codes.tex
+          du --max-depth=2 -a | grep "cpp" > list
+          python3 gen_codes.py > codes.tex
+      - name: Compile LaTeX document
+        uses: xu-cheng/latex-action@master
+        with:
+          root_file: codebook.tex
+          arg: "-xelatex -file-line-error -interaction=nonstopmode"
+      - name: Make Public Folder
+        run: |
+          mkdir public
+          mv codebook.pdf public/codebook.pdf
+      - name: Build and Deploy
+        uses: JamesIves/github-pages-deploy-action@releases/v2
+        env:
+          ACCESS_TOKEN: ${{ secrets.GH_PAT }}
+          BASE_BRANCH: master # The branch the action should deploy from.
+          BRANCH: gh-pages # The branch the action should deploy to.
+          FOLDER: public # The folder the action should deploy.
+
