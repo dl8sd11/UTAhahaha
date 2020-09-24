@@ -15,7 +15,7 @@ typedef pair<ll, ll> pll;
 #define Y second
 #define MN(a,b) a = min(a,(__typeof__(a))(b))
 #define MX(a,b) a = max(a,(__typeof__(a))(b))
-#ifdef BTC
+#ifdef UTAhahaha
 #define debug(...) fprintf(stderr,"#%d: %s = ",__LINE__,#__VA_ARGS__),_do(__VA_ARGS__);
 template<typename T> void _do(T &&x){cerr<<x<<endl;}
 template<typename T, typename ...S> void _do(T &&x, S &&...y){cerr<<x<<", ";_do(y...);}
