@@ -7,7 +7,6 @@ typedef long double ld;
 typedef pair<int,int> pii;
 typedef pair<ll,ll> pll;
 typedef pair<ld,ld> pdd;
-#define IOS ios_base::sync_with_stdio(0); cin.tie(0)
 #define ALL(a) a.begin(),a.end()
 #define all(a) (a).begin(), (a).end()
 #define SZ(a) ((int)a.size())
@@ -23,17 +22,31 @@ typedef pair<ld,ld> pdd;
 #define GET_POS(c,x) (int)(lower_bound(c.begin(),c.end(),x)-c.begin())
 #define EL cout<<'\n'
 #define BS(a,x) binary_search(ALL(a),x)
+
+template<typename T> void _do(T &&x){cerr<<x<<endl;}
+template<typename T, typename ...S> void _do(T &&x, S &&...y){cerr<<x<<", ";_do(y...);}
+template<typename It> ostream& _printRng(ostream &os,It bg,It ed)
+{
+    for(It it=bg;it!=ed;it++) {
+        os<<(it==bg?"":" ")<<*it;
+    }
+    return os;
+}
 template<typename T1,typename T2>
 ostream& operator<<(ostream& out,pair<T1,T2> P){
 	out<<'('<<P.F<<", "<<P.S<<')';
 	return out;
 }
-template<typename T>
-ostream& operator<<(ostream& out,vector<T> V){
-	REP(i,SZ(V)) out<<V[i]<<((i!=SZ(V)-1)?" ":"");
-	return out;
-}
-//}}}
+template<typename T> ostream &operator << (ostream &os,vector<T> &v){return _printRng(os,v.begin(), v.end());}
+#ifdef uta
+#define debug(...) fprintf(stderr,"#%d: %s = ",__LINE__,#__VA_ARGS__),_do(__VA_ARGS__);
+#define IOS
+#else
+#define debug(...)
+#define IOS ios_base::sync_with_stdio(0); cin.tie(0)
+#define endl '\n'
+#endif
+
 const ll maxn=300005;
 const ll maxlg=20;
 const ll INF64=1e18;
@@ -57,6 +70,7 @@ ll mypow(ll a,ll b){
 
 int main(){
 	IOS;
+
 	
 	return 0;
 }
