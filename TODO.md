@@ -1,0 +1,9 @@
+- dc3
+- FWT
+- LCT
+- Voronoi
+- Delaunay 
+- HLPP
+- Suffix Automata
+- centroid decomposition
+- 可愛數學
